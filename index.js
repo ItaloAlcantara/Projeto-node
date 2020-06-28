@@ -1,7 +1,21 @@
-const express = require('express')
+const customExpress = require('./config/customExpress')
+const conexao = require('./config/connect')
+const Tabelas = require('./config/scriptTable')
 
-const app = express()
+conexao.connect( erro => {
+    if(erro) {
+        console.log(erro)
+    }
+    else{
+        console.log('conectado com sucesso')
 
-app.listen(8080, () => console.log('servidor rodando'))
+        Tabelas.init(conexao)
+        
+        const app = customExpress()
 
-app.get('/atendimento',(req,res) => res.send('servidor rodando tuddo ok,aiai'))
+        app.listen(8080, () => console.log('servidor rodando'))
+    } 
+    
+})
+
+

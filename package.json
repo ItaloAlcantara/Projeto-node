@@ -10,7 +10,11 @@
   "author": "italo Jose",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "consign": "^0.1.6",
     "express": "^4.17.1",
+    "mongodb": "^3.5.9",
+    "mysql": "^2.18.1",
     "nodemon": "^2.0.4",
     "save-dev": "0.0.1-security"
   }
